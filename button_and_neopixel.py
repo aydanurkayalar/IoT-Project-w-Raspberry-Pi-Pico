@@ -194,9 +194,7 @@ def pico_wait_response_json(uart=uart_pico, timeout=10000, targetResp="OK"):
     print(color.END)
     return targetCatched
     
-    
-
-    
+       
 
 def pico_waitDummyResp(uart=uart_pico, timeout=2000):
     pico_wait_response(uart=uart_pico, timeout=2000)
@@ -221,10 +219,11 @@ def button_value_func(button=button_value):
         second = button.value()
         #XOR the button values to check button status
         if not first and second:
+            print("Entered into the second Thread")
             count += 1
             print(count)
             pico_send_wait_response('AT#SD=2,0,80,\"api.thingspeak.com",0,0\r\n')
-            pico_send_wait_response_button('GET https://api.thingspeak.com/update?api_key=ZUPIM2V5K8RVN6AJ&field1='+ str(count) +'\r\n')
+            pico_send_wait_response_button('GET https://api.thingspeak.com/update?api_key=################&field1='+ str(count) +'\r\n')
         
         
 def neopixel(status):
@@ -276,6 +275,6 @@ while True:
     print("Entered into the first Thread")
     utime.sleep(0.1)
     pico_send_wait_response('AT#SD=2,0,80,\"api.thingspeak.com",0,0\r\n')
-    pico_send_wait_response_json('GET https://api.thingspeak.com/channels/1725260/feeds.json?api_key=KY6G4UI004WTY5OQ&results=2\r\n')
+    pico_send_wait_response_json('GET https://api.thingspeak.com/channels/1725260/feeds.json?api_key=################&results=2\r\n')
     
     
