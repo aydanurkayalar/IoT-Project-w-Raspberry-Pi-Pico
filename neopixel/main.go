@@ -36,7 +36,7 @@ func main() {
 }
 
 func setButtonStatus(status string) {
-	resp, err := http.Get("https://api.thingspeak.com/update?api_key=ZUPIM2V5K8RVN6AJ&field2=" + status)
+	resp, err := http.Get("https://api.thingspeak.com/update?api_key=################&field2=" + status)
 	if err != nil {
 		log.Fatal(err)
 	}
