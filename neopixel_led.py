@@ -3,7 +3,6 @@ import machine
 import utime
 import time
 import json
-import _thread
 from neopixel import Neopixel
 import random
 
@@ -17,8 +16,7 @@ class color:
     CYAN =    '\033[1;36;48m'
     END =    '\033[1;37;0m'
     
-
-
+    
 #Neopixel 
 numpix = 2
 strip = Neopixel(numpix, 0, 22, "RGB")
@@ -148,9 +146,6 @@ def pico_wait_response_json(uart=uart_pico, timeout=10000, targetResp="OK"):
                 
     print(color.END)
     return targetCatched
-    
-    
-    
 
 
 def pico_waitDummyResp(uart=uart_pico, timeout=2000):
@@ -211,7 +206,5 @@ pico_send_wait_response('AT#SGACT?\r\n')
 
 while True:
     pico_send_wait_response('AT#SD=1,0,80,\"api.thingspeak.com",0,0\r\n')
-    pico_send_wait_response_json('GET https://api.thingspeak.com/channels/1725260/feeds.json?api_key=KY6G4UI004WTY5OQ&results=2\r\n')
+    pico_send_wait_response_json('GET https://api.thingspeak.com/channels/1725260/feeds.json?api_key=################&results=2\r\n')
   
-
-
