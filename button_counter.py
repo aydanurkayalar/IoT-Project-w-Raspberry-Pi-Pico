@@ -26,13 +26,13 @@ uart_pico =machine.UART(0, timeout=1000)
 
 
 
-def pico_send_wait_response(cmd, uart=uart_pico, timeout=10000, targetResp="OK"):
+def pico_send_wait_response(cmd, uart=uart_pico, timeout=8000, targetResp="OK"):
     print(color.MAGENTA + cmd + color.END)
     uart.write(cmd)
     return pico_wait_response(uart, timeout, targetResp)
 
 
-def pico_wait_response(uart=uart_pico, timeout=10000, targetResp="OK"):
+def pico_wait_response(uart=uart_pico, timeout=8000, targetResp="OK"):
     targetCatched = False
     prvMills = utime.ticks_ms()
     print(color.BLUE)
